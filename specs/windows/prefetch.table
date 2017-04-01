@@ -1,0 +1,16 @@
+table_name("prefetch")
+description("Lists the details of Windows Prefech Files ")
+schema([
+  Column("version", INTEGER, "Version of prefetch file"),
+  Column("signature", TEXT, "Signature"),
+  Column("file_size", BIGINT, "Expected file size "),
+  Column("executable_name", TEXT, "Name of Executable File"),
+  Column("run_count", INTEGER, "No. of times prefetch has run ."),
+  Column("last_executed", TEXT, "Time it took in its last execution"),
+  Column("path", TEXT, "Path name"),
+ 
+])
+implementation("system/windows/prefetch@genPrefetchInfo")
+examples([
+  "select * from prefetch",
+])
